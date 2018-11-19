@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe StoresController do
+RSpec.describe StoresController, type: 'controller' do
   describe "GET index" do
     it "http status 200" do
       get :index

@@ -1,5 +1,7 @@
 class StoresController < ApplicationController
 
+  before_action :authenticate_store!, only: [:import_catalog]
+
   def index
     get_products
   end
