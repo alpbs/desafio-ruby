@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'stores#index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  devise_for :stores, path: 'stotes'
+  devise_for :stores, path: 'stores'
   
   resources :stores, only: [:index, :show] do
     get :import_catalog, to: "stores#import_catalog", as: 'import_catalog'
