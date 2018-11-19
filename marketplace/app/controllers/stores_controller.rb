@@ -5,16 +5,9 @@ class StoresController < ApplicationController
   end
 
   def import_catalog
+    notice_message =  import! ? 'Catalogo foi importado' : 'Erro ao importar catalogo'
 
-    respond_to do |format|
-      if import!
-        format.html { redirect_to edit_store_registration_path, notice: 'Catalogo foi importado' }
-        format.json { head :no_content }
-      else
-        format.html { redirect_to edit_store_registration_path, notice: 'Erro ao importar catalogo' }
-        format.json { head :no_content }
-      end
-    end
+    redirect_to edit_store_registration_path, notice: notice_message
   end
 
   private
