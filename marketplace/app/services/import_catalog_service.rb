@@ -33,7 +33,8 @@ class ImportCatalogService
 
       total_imported = 0
       @products.each { |line|
-        total_imported += 1 if Product.where(name: product_args_from(line)[:name]).first_or_create( product_args_from(line) )
+        args = product_args_from(line)
+        total_imported += 1 if Product.where(name: args[:name]).first_or_create( args )
       }
 
       @products.size == total_imported 
