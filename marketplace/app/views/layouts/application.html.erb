@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Marketplace</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">MarketPlace</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <% unless store_signed_in? %>
+            <li class="nav-item">
+              <%= link_to new_store_session_path, class: 'mr-2' do %>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Entrar</button>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_store_registration_path do %>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Registrar</button>
+              <% end %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to edit_store_registration_path, class: 'mr-2' do %>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Minha loja</button>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to destroy_store_session_path, method: :delete do %>
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Sair</button>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+        </div>
+      </nav>
+    </div>
+    <p id="notice"><%= notice %></p>
+    <%= yield %>
+  </body>
+</html>

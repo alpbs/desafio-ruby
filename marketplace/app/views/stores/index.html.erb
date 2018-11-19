@@ -1,0 +1,27 @@
+<div class="row mb-4 mt-4">
+  <div class="col-8 offset-2 text-center">
+    <form class="form-inline my-2" role="form" >
+      <input name="s" class="form-control mr-sm-2 input-lg" type="search" placeholder="Search" aria-label="Search" style="width: 80%" value="<%= params[:s] %>">
+      <button class="btn btn-outline-info my-2 my-sm-0 w-5" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+
+<div class="row mb-4">
+  <div class="col-8 offset-2 ml-auto">
+    <%= paginate @products, theme: 'twitter-bootstrap-4'%>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row mt-4">
+  <% @products.each do |product| %>
+    <div class="col-3">
+      <%= render partial: 'product_box', :locals => { :product =>  product } %> 
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<br>
+

@@ -1,0 +1,10 @@
+<div class="text-center">
+  <img width="150" src="<%= product._source.image %>" alt="<%= product._source.name %>" class="img-fluid">
+  <div>
+    <h5><%= product.name %></h5>
+    <p>
+    <span> <del><%= money_br product._source.list_price %></del></span> por: <span style="color: red;"> <%= money_br product._source.price %> </span> <br />
+      <span style="color: red; font-size: 12px"> <%= product._source.installments_number %>X <%= money_br product._source.installments_value %></span>
+    </p>
+  </div>
+</div>
