@@ -152,6 +152,8 @@ development:
 
     # Use background indexes by default if `background` option not specified. (default: false)
     # background_indexing: false
+    #
+
 test:
   clients:
     default:
@@ -159,6 +161,20 @@ test:
       hosts:
         - localhost:27017
       options:
+        read:
+          mode: :primary
+        max_pool_size: 1
+
+
+production:
+  clients:
+    default:
+      database: marketplace
+      hosts:
+        - ds043487.mlab.com:43487
+      options:
+        user: heroku_xk3hbs1n
+        password: heroku_xk3hbs1n
         read:
           mode: :primary
         max_pool_size: 1
